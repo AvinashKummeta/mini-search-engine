@@ -1,0 +1,34 @@
+Design Document - 
+	
+The program consists of a single main function which computes both indexing and querying.
+The program reads all the files with .txt extension in the dataset.And the GUI will take a user query in the textbox and a search button is provided which onclick	then takes the user query(or search query) and display top 10 documents which are relevant to the user query based on some scoring scheme
+	It prints the following info:
+		1.Id of the document
+		2.Location of the file
+
+Data structures used:
+
+	List - List is used for storing the postings of the term
+	Dictionary - Dictionary is used for storing all the terms along with its postings 
+
+Libraries used - 
+
+	1.python nltk for the following tasks-
+		1.1 Tokenization
+		1.2 Case folding
+		1.3 lemmetisation
+
+	2.Porter's Stemmer algorithm
+
+Model used for Scoring the documents:
+
+Vector space model:
+	This ranking model is based on how close a document is to the query and scored based on differnt weightages for query and docuement.
+
+	Many search engines allow  differnt weighting schemes for queries Vs. documents but the very standard scheme is:ddd.qqq - lnc:ltc
+
+The variant forms used for different weightings are :
+
+	1.For tf - 1+log(tf) where tf is the number of times the term appeared in the document
+
+	2.For idf - log(N/df) where N is the total number of documents in the corpus and the df is the document frequency of the particular term.(i.e the number of documents a particular term appeared)
